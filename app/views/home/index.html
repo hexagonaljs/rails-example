@@ -18,7 +18,7 @@
       <tr>
         <td>{{this.name}}</td>
         <td>{{this.content}}</td>
-        <td><a href="#" id="show-post-{{this.id}}">Show</a></td>
+        <td><a href="#" id="show-post-{{this.cid}}">Show</a></td>
         <td><a href="/posts/1/edit">Edit</a></td>
         <td><a href="/posts/1" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Destroy</a></td>
       </tr>
@@ -27,7 +27,7 @@
 
     <br />
 
-    <a href="/posts/new">New Post</a>
+    <a href="#" id="new-post">New Post</a>
   </div>
 </script>
 
@@ -46,5 +46,27 @@
     <a href="#" id="show-all-posts">Back</a>
     
 
+  </div>
+</script>
+
+
+<script type="x-handlebars-template" id="new-post-template">
+  <div class="new-post">
+    <h1>New post</h1>
+
+      <div class="field">
+        <label for="post_name">Name</label><br />
+        <input id="post_name" name="post[name]" size="30" type="text" />
+      </div>
+      <div class="field">
+        <label for="post_content">Content</label><br />
+        <textarea cols="40" id="post_content" name="post[content]" rows="20">
+    </textarea>
+      </div>
+      <div class="actions">
+        <input name="commit" type="submit" value="Create Post" id="commit-new-post"/>
+      </div>
+
+    <a href="/posts">Back</a>
   </div>
 </script>

@@ -11,3 +11,9 @@ class @Glue
 
     After(@gui, "showPostsClicked", => @blog.showPosts())
     After(@blog, "showPosts", => @gui.showPosts(@blog.allPosts()))
+
+    After(@gui, "newPostClicked", => @blog.newPost())
+    After(@blog, "newPost", => @gui.showNewPostForm())
+
+    After(@gui, "commitNewPostClicked", (name, content) => @blog.createNewPost(name, content))
+    After(@blog, "createNewPost", => @gui.showPosts(@blog.allPosts()))

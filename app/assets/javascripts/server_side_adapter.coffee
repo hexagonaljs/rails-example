@@ -16,7 +16,8 @@ class @ServerSideAdapter
     @postsLoaded(jsonPosts.map((jsonPost) => @buildPostFromJson(jsonPost)))
 
   buildPostFromJson: (jsonPost) =>
-    new Post(jsonPost.id, jsonPost.name, jsonPost.content)
+    post = new Post(jsonPost.id, jsonPost.name, jsonPost.content)
+
 
 
   postsLoaded: (posts) =>

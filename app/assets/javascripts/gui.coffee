@@ -8,24 +8,32 @@ class @Gui
 
   showPosts: (posts) =>
     $(".show-post").remove()
-    console.log(posts)
+    $(".new-post").remove()
+    console.log(posts[0].cid)
     element = @createElementFor("#posts-list-template", posts : posts)
     $(".main").append(element)
 
     for post in posts
       do (post) =>
         showPostLinkElement = $("a#show-post-#{post.id}")
-        console.log(showPostLinkElement)
         showPostLinkElement.click( => @showPostClicked(post))
-        
+    $("#new-post").click(=> @newPostClicked())
 
-    
+  newPostClicked: =>
+
+  showNewPostForm: =>
+    $(".posts-list").remove()
+    console.log("show new post form")
+    $(".main").append(@createElementFor("#new-post-template"))
+    $("#commit-new-post").click( 
+      => @commitNewPostClicked($("#post_name").val(), $("#post_content").val())
+    )
+
+  commitNewPostClicked: (name, content) =>
 
   showPostClicked: (post) =>
-    console.log("post clicked: #{post.id}")
 
   hidePostsList: =>
-    console.log("gui.hidePostsList")
     $(".posts-list").remove()
 
   showPost: (post) =>
@@ -34,5 +42,3 @@ class @Gui
     $("#show-all-posts").click => @showPostsClicked()
 
   showPostsClicked: =>
-
-
