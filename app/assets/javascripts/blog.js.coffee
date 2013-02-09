@@ -11,4 +11,4 @@ class @Blog
 
 
 class @Post
-  constructor: (@title, @content) ->
+  constructor: (@name, @content) ->

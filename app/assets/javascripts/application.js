@@ -11,8 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 
-//= require jquery
-//= require jquery_ujs
 //= require_tree .
 //= require ../../../vendor/assets/javascripts/underscore
 //= require ../../../vendor/assets/javascripts/YouAreDaBomb
