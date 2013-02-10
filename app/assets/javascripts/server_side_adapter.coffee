@@ -42,13 +42,16 @@ class @ServerSideAdapter
           name: post.name
           content: post.content
       success: (json) =>
-        @createPostSucceeded(json)
+        @createPostSucceeded(json, post)
       error: (json) =>
         @createPostFailed(json)
     )
 
-  createPostSucceeded: (json) =>
+  createPostSucceeded: (json, post) =>
     console.log(json)
+    post.id = json.id
+    
+
 
   createPostFailed: (json) =>
     console.log (json)
