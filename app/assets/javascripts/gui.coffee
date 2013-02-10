@@ -7,16 +7,20 @@ class @Gui
     element = $(html)
 
   showPosts: (posts) =>
+    $(".posts-list").remove()
     $(".show-post").remove()
     $(".new-post").remove()
-    console.log(posts[0].cid)
+    $(".edit-post").remove()
     element = @createElementFor("#posts-list-template", posts : posts)
     $(".main").append(element)
 
     for post in posts
       do (post) =>
-        showPostLinkElement = $("a#show-post-#{post.id}")
+        showPostLinkElement = $("a#show-post-#{post.cid}")
         showPostLinkElement.click( => @showPostClicked(post))
+
+        $("a#edit-post-#{post.cid}").click( => @editPostClicked(post))
+        $("a#delete-post-#{post.cid}").click( => @deletePostClicked(post))
     $("#new-post").click(=> @newPostClicked())
 
   newPostClicked: =>
@@ -42,3 +46,17 @@ class @Gui
     $("#show-all-posts").click => @showPostsClicked()
 
   showPostsClicked: =>
+
+  editPostClicked: (post) =>
+
+  showEditForm: (post) =>
+    console.log("show edit form")
+    $(".posts-list").remove()
+    $(".main").append(@createElementFor("#edit-post-template", post : post))
+    $("#update-post").click( 
+      => @updatePostClicked(post, $("#post_name").val(), $("#post_content").val())
+    )
+
+  updatePostClicked: (post, name, value) =>
+
+  deletePostClicked: (post) =>

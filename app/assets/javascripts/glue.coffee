@@ -17,3 +17,12 @@ class @Glue
 
     After(@gui, "commitNewPostClicked", (name, content) => @blog.createNewPost(name, content))
     After(@blog, "createNewPost", => @gui.showPosts(@blog.allPosts()))
+
+    After(@gui, "editPostClicked", (post) => @blog.editPost(post))
+    After(@blog, "editPost", (post) => @gui.showEditForm(post))
+
+    After(@gui, "updatePostClicked", (post, name, content) => @blog.updatePost(post, name, content))
+    After(@blog, "updatePost", => @gui.showPosts(@blog.allPosts()))
+
+    After(@gui, "deletePostClicked", (post) => @blog.deletePost(post))
+    After(@blog, "deletePost", => @gui.showPosts(@blog.allPosts()))

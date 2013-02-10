@@ -19,8 +19,8 @@
         <td>{{this.name}}</td>
         <td>{{this.content}}</td>
         <td><a href="#" id="show-post-{{this.cid}}">Show</a></td>
-        <td><a href="/posts/1/edit">Edit</a></td>
-        <td><a href="/posts/1" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Destroy</a></td>
+        <td><a href="#" id="edit-post-{{this.cid}}">Edit</a></td>
+        <td><a href="#" data-confirm="Are you sure?" id="delete-post-{{this.cid}}">Destroy</a></td>
       </tr>
       {{/each}}
     </table>
@@ -65,6 +65,26 @@
       </div>
       <div class="actions">
         <input name="commit" type="submit" value="Create Post" id="commit-new-post"/>
+      </div>
+
+    <a href="/posts">Back</a>
+  </div>
+</script>
+
+<script type="x-handlebars-template" id="edit-post-template">
+  <div class="new-post">
+    <h1>New post</h1>
+
+      <div class="field">
+        <label for="post_name">Name</label><br />
+        <input id="post_name" name="post[name]" size="30" type="text" value="{{post.name}}"/>
+      </div>
+      <div class="field">
+        <label for="post_content">Content</label><br />
+        <textarea cols="40" id="post_content" name="post[content]" rows="20">{{post.content}}</textarea>
+      </div>
+      <div class="actions">
+        <input name="update" type="submit" value="Update Post" id="update-post"/>
       </div>
 
     <a href="/posts">Back</a>

@@ -32,9 +32,20 @@ class @Blog
     @counter += 1
     return @counter
 
+  deletePost: (post) =>
+    console.log("deleting post")
+    @posts.remove(post)
+
+  editPost: (post) =>
+
+  updatePost: (post, name, content) =>
+    post.update(name, content)
+
 class @Post
   constructor: (@id, @name, @content) ->
     @cid = null
 
   setCid: (@cid) =>
+
+  update: (@name, @content) =>
 
