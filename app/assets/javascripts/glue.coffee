@@ -29,3 +29,4 @@ class @Glue
 
     After(@blog, "deletePost", (post) => @serverSideAdapter.deletePost(post))
     After(@blog, "createNewPost", (post) => @serverSideAdapter.createNewPost(post))
+    After(@blog, "updatePost", (post, name, content) => @serverSideAdapter.updatePost(post, name, content))

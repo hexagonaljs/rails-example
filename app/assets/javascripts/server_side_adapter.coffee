@@ -52,3 +52,23 @@ class @ServerSideAdapter
 
   createPostFailed: (json) =>
     console.log (json)
+
+  updatePost: (post, name, content) =>
+    $.ajax(
+      type: "PUT"
+      url: "/posts/#{post.id}.json"
+      data: 
+        post:
+          name: name
+          content: content
+      success: (json) =>
+        @updatePostSucceeded(json)
+      error: (json) =>
+        @updatePostFailed(json)
+    )
+
+  updatePostSucceeded: (json) =>
+    console.log(json)
+
+  updatePostFailed: (json) =>
+    console.log(json)
