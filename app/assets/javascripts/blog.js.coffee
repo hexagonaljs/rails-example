@@ -33,7 +33,6 @@ class @Blog
     return @counter
 
   deletePost: (post) =>
-    console.log("deleting post")
     @posts.remove(post)
 
   editPost: (post) =>

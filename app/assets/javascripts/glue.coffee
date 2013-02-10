@@ -26,3 +26,5 @@ class @Glue
 
     After(@gui, "deletePostClicked", (post) => @blog.deletePost(post))
     After(@blog, "deletePost", => @gui.showPosts(@blog.allPosts()))
+
+    After(@blog, "deletePost", (post) => @serverSideAdapter.deletePost(post))

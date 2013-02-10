@@ -18,6 +18,17 @@ class @ServerSideAdapter
   buildPostFromJson: (jsonPost) =>
     post = new Post(jsonPost.id, jsonPost.name, jsonPost.content)
 
-
-
   postsLoaded: (posts) =>
+
+  deletePost: (post) =>
+    $.ajax(
+      type: "DELETE"
+      url: "/posts/#{post.id}.json"
+      success: (json) =>
+        @deletePostSucceeded(json)
+      error: (json) =>
+        @deletePostFailed(json)
+    )
+    
+  deletePostSucceeded: (json) =>
+    console.log(json)
