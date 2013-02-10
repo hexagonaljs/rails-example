@@ -32,3 +32,23 @@ class @ServerSideAdapter
     
   deletePostSucceeded: (json) =>
     console.log(json)
+
+  createNewPost: (post) =>
+    $.ajax(
+      type: "POST"
+      url: "/posts.json"
+      data: 
+        post:
+          name: post.name
+          content: post.content
+      success: (json) =>
+        @createPostSucceeded(json)
+      error: (json) =>
+        @createPostFailed(json)
+    )
+
+  createPostSucceeded: (json) =>
+    console.log(json)
+
+  createPostFailed: (json) =>
+    console.log (json)

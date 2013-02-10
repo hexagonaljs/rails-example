@@ -20,8 +20,7 @@ class @Blog
 
   newPost: =>
 
-  createNewPost: (name, content) =>
-    post = new Post(null, name, content)
+  createNewPost: (post) =>
     @appendNewPost(post)
 
   appendNewPost: (post) =>

@@ -15,7 +15,7 @@ class @Glue
     After(@gui, "newPostClicked", => @blog.newPost())
     After(@blog, "newPost", => @gui.showNewPostForm())
 
-    After(@gui, "commitNewPostClicked", (name, content) => @blog.createNewPost(name, content))
+    After(@gui, "commitNewPostClicked", (name, content) => @blog.createNewPost(new Post(null, name, content)))
     After(@blog, "createNewPost", => @gui.showPosts(@blog.allPosts()))
 
     After(@gui, "editPostClicked", (post) => @blog.editPost(post))
@@ -28,3 +28,4 @@ class @Glue
     After(@blog, "deletePost", => @gui.showPosts(@blog.allPosts()))
 
     After(@blog, "deletePost", (post) => @serverSideAdapter.deletePost(post))
+    After(@blog, "createNewPost", (post) => @serverSideAdapter.createNewPost(post))
