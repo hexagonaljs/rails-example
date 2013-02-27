@@ -1,4 +1,4 @@
-class @ServerSideAdapter
+class ServerSideAdapter
   constructor: ->
     console.log("ServerSideAdapter.constructor")
 

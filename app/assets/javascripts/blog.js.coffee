@@ -1,4 +1,4 @@
-class @Blog
+class Blog
   constructor: ->
     @posts = []
     console.log("Blog.constructor")

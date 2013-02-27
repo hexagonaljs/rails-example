@@ -1,4 +1,4 @@
-class @App
+class App
   constructor: ->
     blog = new Blog()
     gui = new Gui()

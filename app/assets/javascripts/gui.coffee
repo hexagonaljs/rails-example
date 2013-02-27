@@ -1,4 +1,4 @@
-class @Gui
+class Gui
 
   createElementFor: (templateId, data) =>
     source = $(templateId).html()
